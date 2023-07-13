@@ -7,32 +7,50 @@ function BETTERUI.GenericFooter:Initialize()
 end
 
 function BETTERUI.GenericFooter:Refresh()
-	-- a hack until I completely generalize these functions... 
-	if(self.footer.GoldLabel ~= nil) then
-		self.footer.GoldLabel:SetText(zo_strformat("GOLD: |cFFBF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_MONEY)),GetCurrencyGamepadIcon(CURT_MONEY)))
-		self.footer.TVLabel:SetText(zo_strformat("TEL VAR: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_TELVAR_STONES)),GetCurrencyGamepadIcon(CURT_TELVAR_STONES)))
-		self.footer.CWLabel:SetText(zo_strformat("BAG: (<<1>>)|t32:32:/esoui/art/inventory/inventory_all_tabicon_inactive.dds|t",zo_strformat(SI_GAMEPAD_INVENTORY_CAPACITY_FORMAT, GetNumBagUsedSlots(BAG_BACKPACK), GetBagSize(BAG_BACKPACK))))
-		self.footer.BankLabel:SetText(zo_strformat("BANK: (<<1>>)|t32:32:/esoui/art/inventory/inventory_all_tabicon_inactive.dds|t",zo_strformat(SI_GAMEPAD_INVENTORY_CAPACITY_FORMAT, GetNumBagUsedSlots(BAG_BANK) + GetNumBagUsedSlots(BAG_SUBSCRIBER_BANK), GetBagUseableSize(BAG_BANK) + GetBagUseableSize(BAG_SUBSCRIBER_BANK))))
-		self.footer.APLabel:SetText(zo_strformat("AP: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_ALLIANCE_POINTS)),GetCurrencyGamepadIcon(CURT_ALLIANCE_POINTS)))
-		self.footer.GemsLabel:SetText(zo_strformat("GEMS: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_CROWN_GEMS, CURRENCY_LOCATION_ACCOUNT)),GetCurrencyGamepadIcon(CURT_CROWN_GEMS)))
-		self.footer.TCLabel:SetText(zo_strformat("TRANSMUTE: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_CHAOTIC_CREATIA, CURRENCY_LOCATION_ACCOUNT)),GetCurrencyGamepadIcon(CURT_STYLE_STONES)))
-		self.footer.CrownsLabel:SetText(zo_strformat("CROWNS: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_CROWNS, CURRENCY_LOCATION_ACCOUNT)),GetCurrencyGamepadIcon(CURT_CROWNS)))
-		self.footer.WritsLabel:SetText(zo_strformat("WRITS: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_WRIT_VOUCHERS)),GetCurrencyGamepadIcon(CURT_WRIT_VOUCHERS)))
-		self.footer.TicketsLabel:SetText(zo_strformat("TICKETS: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_EVENT_TICKETS, CURRENCY_LOCATION_ACCOUNT)),GetCurrencyGamepadIcon(CURT_EVENT_TICKETS)))
-		self.footer.KeysLabel:SetText(zo_strformat("KEYS: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_UNDAUNTED_KEYS, CURRENCY_LOCATION_ACCOUNT)),GetCurrencyGamepadIcon(CURT_UNDAUNTED_KEYS)))
-		self.footer.OutfitLabel:SetText(zo_strformat("OUTFIT: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_STYLE_STONES, CURRENCY_LOCATION_ACCOUNT)),GetCurrencyGamepadIcon(CURT_STYLE_STONES)))
-	else
-		self.footer:GetNamedChild("GoldLabel"):SetText(zo_strformat("GOLD: |cFFBF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_MONEY)),GetCurrencyGamepadIcon(CURT_MONEY)))
-		self.footer:GetNamedChild("TVLabel"):SetText(zo_strformat("TEL VAR: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_TELVAR_STONES)),GetCurrencyGamepadIcon(CURT_TELVAR_STONES)))
-		self.footer:GetNamedChild("CWLabel"):SetText(zo_strformat("BAG: (<<1>>)|t32:32:/esoui/art/inventory/inventory_all_tabicon_inactive.dds|t",zo_strformat(SI_GAMEPAD_INVENTORY_CAPACITY_FORMAT, GetNumBagUsedSlots(BAG_BACKPACK), GetBagSize(BAG_BACKPACK))))
-		self.footer:GetNamedChild("BankLabel"):SetText(zo_strformat("BANK: (<<1>>)|t32:32:/esoui/art/inventory/inventory_all_tabicon_inactive.dds|t",zo_strformat(SI_GAMEPAD_INVENTORY_CAPACITY_FORMAT, GetNumBagUsedSlots(BAG_BANK) + GetNumBagUsedSlots(BAG_SUBSCRIBER_BANK), GetBagUseableSize(BAG_BANK) + GetBagUseableSize(BAG_SUBSCRIBER_BANK))))
-		self.footer:GetNamedChild("APLabel"):SetText(zo_strformat("AP: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_ALLIANCE_POINTS)),GetCurrencyGamepadIcon(CURT_ALLIANCE_POINTS)))
-		self.footer:GetNamedChild("GemsLabel"):SetText(zo_strformat("GEMS: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_CROWN_GEMS, CURRENCY_LOCATION_ACCOUNT)),GetCurrencyGamepadIcon(CURT_CROWN_GEMS)))
-		self.footer:GetNamedChild("TCLabel"):SetText(zo_strformat("TRANSMUTE: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_CHAOTIC_CREATIA, CURRENCY_LOCATION_ACCOUNT)),GetCurrencyGamepadIcon(CURT_STYLE_STONES)))
-		self.footer:GetNamedChild("CrownsLabel"):SetText(zo_strformat("CROWNS: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_CROWNS, CURRENCY_LOCATION_ACCOUNT)),GetCurrencyGamepadIcon(CURT_CROWNS)))
-		self.footer:GetNamedChild("WritsLabel"):SetText(zo_strformat("WRITS: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_WRIT_VOUCHERS)),GetCurrencyGamepadIcon(CURT_WRIT_VOUCHERS)))
-		self.footer:GetNamedChild("TicketsLabel"):SetText(zo_strformat("TICKETS: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_EVENT_TICKETS, CURRENCY_LOCATION_ACCOUNT)),GetCurrencyGamepadIcon(CURT_EVENT_TICKETS)))
-		self.footer:GetNamedChild("KeysLabel"):SetText(zo_strformat("KEYS: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_UNDAUNTED_KEYS, CURRENCY_LOCATION_ACCOUNT)),GetCurrencyGamepadIcon(CURT_UNDAUNTED_KEYS)))
-		self.footer:GetNamedChild("OutfitLabel"):SetText(zo_strformat("OUTFIT: |c00FF00<<1>>|r |t24:24:<<2>>|t",BETTERUI.DisplayNumber(GetCurrencyAmount(CURT_STYLE_STONES, CURRENCY_LOCATION_ACCOUNT)),GetCurrencyGamepadIcon(CURT_STYLE_STONES)))
-	end
+	-- we're currently shortening the code using if/else statements to create SetCurrencyText functions
+	function SetCurrencyText(object, currencyLabel, currencyType, colorCode, iconSize)
+		local currencyAmount
+		local lowercaseLabel = currencyLabel:lower()
+
+		if lowercaseLabel == "gold" or lowercaseLabel == "tv" or lowercaseLabel == "ap" or lowercaseLabel == "writs" then
+			currencyAmount = GetCurrencyAmount(currencyType)
+		else
+			currencyAmount = GetCurrencyAmount(currencyType, CURRENCY_LOCATION_ACCOUNT)
+		end
+
+		local formattedAmount = BETTERUI.DisplayNumber(currencyAmount)
+		local currencyIcon = GetCurrencyGamepadIcon(currencyType)
+		-- d(formattedAmount)
+		-- d(currencyIcon)
+		
+		local text = zo_strformat(": |c" .. colorCode .. "<<1>>|r |t" .. iconSize .. ":" .. iconSize .. ":<<2>>|t", formattedAmount, currencyIcon)
+		-- d(text)
+
+		-- Set text for the label directly using GetNamedChild
+		if object[currencyLabel .. "Label"] ~= nil then
+			object[currencyLabel .. "Label"]:SetText(currencyLabel .. text)
+			-- d("Set text for " .. currencyLabel .. "Label directly")
+		-- If direct property access fails, try GetNamedChild
+		elseif object:GetNamedChild(currencyLabel .. "Label") ~= nil then
+			object:GetNamedChild(currencyLabel .. "Label"):SetText(currencyLabel .. text)
+			-- d("Set text for " .. currencyLabel .. "Label via GetNamedChild")
+		else
+			d("GenericFooter.lua:38 No label found for: " .. currencyLabel)
+		end
+	end	
+
+	-- Now, call the SetCurrencyText function for each label
+	SetCurrencyText(self.footer, "Gold", CURT_MONEY, "FFBF00", "24")
+	SetCurrencyText(self.footer, "TV", CURT_TELVAR_STONES, "00FF00", "24")
+	self.footer:GetNamedChild("CWLabel"):SetText(zo_strformat("BAG: (<<1>>)|t32:32:/esoui/art/inventory/inventory_all_tabicon_inactive.dds|t",zo_strformat(SI_GAMEPAD_INVENTORY_CAPACITY_FORMAT, GetNumBagUsedSlots(BAG_BACKPACK), GetBagSize(BAG_BACKPACK))))
+	self.footer:GetNamedChild("BankLabel"):SetText(zo_strformat("BANK: (<<1>>)|t32:32:/esoui/art/inventory/inventory_all_tabicon_inactive.dds|t",zo_strformat(SI_GAMEPAD_INVENTORY_CAPACITY_FORMAT, GetNumBagUsedSlots(BAG_BANK) + GetNumBagUsedSlots(BAG_SUBSCRIBER_BANK), GetBagUseableSize(BAG_BANK) + GetBagUseableSize(BAG_SUBSCRIBER_BANK))))
+	SetCurrencyText(self.footer, "AP", CURT_ALLIANCE_POINTS, "00FF00", "24")
+	SetCurrencyText(self.footer, "Gems", CURT_CROWN_GEMS, "00FF00", "24")
+	SetCurrencyText(self.footer, "TC", CURT_CHAOTIC_CREATIA, "00FF00", "24")
+	SetCurrencyText(self.footer, "Crowns", CURT_CROWNS, "00FF00", "24")
+	SetCurrencyText(self.footer, "Writs", CURT_WRIT_VOUCHERS, "00FF00", "24")
+	SetCurrencyText(self.footer, "Tickets", CURT_EVENT_TICKETS, "00FF00", "24")
+	SetCurrencyText(self.footer, "Keys", CURT_UNDAUNTED_KEYS, "00FF00", "24")
+	SetCurrencyText(self.footer, "Outfit", CURT_STYLE_STONES, "00FF00", "24")
 end
+

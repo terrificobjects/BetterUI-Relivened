@@ -3,8 +3,8 @@ BETTERUI = {
 	ResearchTraits = {}
 }
 
-BETTERUI.name = "BetterUI Enlivened"
-BETTERUI.version = "1.0.0"
+BETTERUI.name = "BetterUI"
+BETTERUI.version = "2.7.8"
 
 -- Program Global (scope of BETTERUI, though) variable initialization
 BETTERUI.WindowManager = GetWindowManager()
