@@ -1,0 +1,59 @@
+## Title: BetterUI Relivened
+## Description: Reshaping the gamepad interface! A fork of the BetterUI addon by goobsnake.
+## APIVersion: 101038
+## Author: coughsyrupgod (originally goobsnake)
+## Contributers: goobsnake, prasoc, RockingDice, coughsyrupgod
+## Version: 1.0.0
+## DependsOn: LibAddonMenu-2.0
+## SavedVariables: BetterUISavedVars
+ 
+Globals.lua
+
+lang\en.lua
+lang\$(language).lua
+
+BetterUI.CONST.lua
+BetterUI_Shared.xml
+
+; Module: Common Interface Module
+Modules\CIM\Images\inv_equip.dds
+Modules\CIM\Images\inv_equip_backup.dds
+Modules\CIM\Images\inv_equip_quickslot.dds
+Modules\CIM\Images\inv_stolen.dds
+Modules\CIM\Images\inv_enchanted.dds
+Modules\CIM\Images\inv_setitem.dds
+Modules\CIM\Images\select_tabbar.dds
+Modules\CIM\Templates\GenericHeader.xml
+Modules\CIM\GenericHeader.lua
+Modules\CIM\Templates\GenericFooter.xml
+Modules\CIM\GenericFooter.lua
+Modules\CIM\Templates\ParametricScrollListTemplates.xml
+Modules\CIM\ParametricScrollListTemplates.lua
+Modules\CIM\Templates\InterfaceLibrary.xml
+Modules\CIM\InterfaceLibrary.lua
+Modules\CIM\Module.lua
+
+; Module: Inventory Enhanced
+Modules\Inventory\Templates\GamepadInventory.xml
+Modules\Inventory\InventoryList.lua
+Modules\Inventory\InventorySlot.lua
+Modules\Inventory\CraftList.lua
+Modules\Inventory\Inventory.lua
+Modules\Inventory\Module.lua
+
+; Module: General Interface Improvements
+Modules\GeneralInterface\Tooltips.lua
+Modules\GeneralInterface\Module.lua
+
+; Module: Banking
+Modules\Banking\Images\nav_vert.dds
+Modules\Banking\Images\selectbg.dds
+Modules\Banking\Banking.lua
+Modules\Banking\Module.lua
+
+; Module: Writ Unit
+Modules\WritUnit\Templates\WritsPanel.xml
+Modules\WritUnit\Writ.lua
+Modules\WritUnit\Module.lua
+
+BetterUI.lua

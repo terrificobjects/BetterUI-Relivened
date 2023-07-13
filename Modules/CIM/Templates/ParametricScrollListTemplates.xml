@@ -1,0 +1,93 @@
+<GuiXml>
+    <Controls>
+
+        <!-- The below 2 controls are redefinitions of ZOS's original NavQuadrant_1 anchors to facilitate smooth transitions and compatibility -->
+        <Control name="BETTERUI_GamepadGrid_NavQuadrant_1_Anchors" virtual="true">
+            <Dimensions x="BETTERUI_GAMEPAD_DEFAULT_PANEL_WIDTH" />
+            <Anchor point="TOPLEFT" relativeTo="GuiRoot" offsetX="BETTERUI_GAMEPAD_QUADRANT_1_LEFT" />
+            <Anchor point="BOTTOMLEFT" relativeTo="GuiRoot" offsetX="BETTERUI_GAMEPAD_QUADRANT_1_LEFT" />
+        </Control>
+        <Control name="BETTERUI_GamepadGrid_NavQuadrant_1_ContainerAnchors" virtual="true">
+            <Dimensions x="BETTERUI_GAMEPAD_DEFAULT_PANEL_CONTAINER_WIDTH" />
+            <Anchor point="TOPLEFT" offsetX="BETTERUI_GAMEPAD_DEFAULT_HORIZ_PADDING" />
+            <Anchor point="BOTTOMLEFT" offsetX="BETTERUI_GAMEPAD_DEFAULT_HORIZ_PADDING" />
+        </Control>
+
+        <Control name="BETTERUI_VerticalParametricScrollListTemplate" mouseEnabled="true" virtual="true">
+            <OnMouseWheel>
+                if self.scrollList.active then
+                    if delta > 0 then
+                        self.scrollList:MovePrevious()
+                    else
+                        self.scrollList:MoveNext()
+                    end
+                end
+            </OnMouseWheel>
+
+            <OnMouseUp>
+                -- Allow mouse click to select an item, will probably have an option to disable this behaviour
+                    -- Will implement
+            </OnMouseUp>
+
+            <Controls>
+                <Scroll name="$(parent)Scroll">
+                    <AnchorFill />
+                </Scroll>
+
+                <Control name="$(parent)ListScreenCenterIsAlongTop">
+                    <Anchor point="TOPLEFT" relativeTo="GuiRoot" relativePoint="LEFT" />
+                    <Anchor point="BOTTOMRIGHT" relativePoint="BOTTOM" />
+
+                    <Controls>
+                        <Control name="$(parent)ListScreenCenter">
+                            <Anchor point="CENTER" relativePoint="TOPRIGHT" />
+                        </Control>
+
+                    </Controls>
+                </Control>
+            </Controls>
+        </Control>
+
+        <Control name="BETTERUI_Gamepad_ParametricList_Screen_ListContainer" inherits="BETTERUI_GamepadGrid_NavQuadrant_1_ContainerAnchors" virtual="true">
+            <Controls>
+                <Control name="$(parent)List" inherits="BETTERUI_VerticalParametricScrollListTemplate">
+                    <AnchorFill />
+
+                    <OnInitialized>
+                        self:GetParent().list = self
+                    </OnInitialized>
+
+                    <Anchor point="TOPLEFT" relativeTo="$(grandparent)HeaderContainerHeader" relativePoint="BOTTOMLEFT" offsetX="-50" offsetY="-25"/>
+                    <Anchor point="BOTTOMRIGHT" relativeTo="$(grandparent)FooterContainerFooter" relativePoint="TOPRIGHT" offsetX="0" offsetY="10" />
+
+                    <Controls>
+                        <Label name="$(parent)NoItemsLabel"  font="ZoFontGamepadCondensed36" horizontalAlignment="CENTER" verticalAlignment="CENTER">
+                            <Anchor point="TOPLEFT" offsetX="BETTERUI_GAMEPAD_DEFAULT_HORIZ_PADDING" />
+                            <Anchor point="BOTTOMRIGHT" offsetX="-BETTERUI_GAMEPAD_DEFAULT_HORIZ_PADDING" />
+                        </Label>
+                    </Controls>
+                </Control>
+            </Controls>
+        </Control>
+
+        <Control name="BETTERUI_Gamepad_ParametricList_Screen" inherits="BETTERUI_GamepadGrid_NavQuadrant_1_Anchors" hidden="true" virtual="true">
+            <Controls>
+                <Scroll name="$(parent)Mask">
+                    <AnchorFill />
+
+                    <Controls>
+                        <Control name="$(parent)Container">
+                            <AnchorFill />
+
+                            <Controls>
+                                <Control name="$(parent)HeaderContainer" inherits="BETTERUI_GamepadScreenHeaderContainer BETTERUI_GamepadGrid_NavQuadrant_1_ContainerAnchors" />
+                                <Control name="$(parent)FooterContainer" inherits="BETTERUI_GamepadScreenFooterContainer BETTERUI_GamepadGrid_NavQuadrant_1_ContainerAnchors" />
+                            </Controls>
+
+                        </Control>
+                    </Controls>
+                </Scroll>
+            </Controls>
+        </Control>
+    </Controls>
+</GuiXml>
