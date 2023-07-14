@@ -60,4 +60,3 @@ function BETTERUI.GenericFooter:Refresh()
 	SetCurrencyText(self.footer, "Keys", CURT_UNDAUNTED_KEYS, "00FF00", "24")
 	SetCurrencyText(self.footer, "Outfit", CURT_STYLE_STONES, "00FF00", "24")
 end
-
